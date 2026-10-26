@@ -26,21 +26,11 @@ pipeline {
             }
         }
 
-        stage('Docker Login') {
+       stage('Docker Login') {
             steps {
-                echo "Logging into Docker Hub"
-
-                withCredentials([
-                    usernamePassword(
-                        credentialsId: 'dockerhub-credentials',
-                        usernameVariable: 'DOCKER_USERNAME',
-                        passwordVariable: 'DOCKER_PASSWORD'
-                    )
-                ]) {
-                    bat 'docker login -u %DOCKER_USERNAME% -p %DOCKER_PASSWORD%'
+                  bat 'docker login -u dayalaharimya -p Harimya@1234'
                 }
             }
-        }
 
         stage('Push Docker Image to Docker Hub') {
             steps {
@@ -73,3 +63,4 @@ pipeline {
         }
     }
 }
+
