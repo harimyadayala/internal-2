@@ -40,7 +40,8 @@ def test_empty_student_id(setup_teardown):
     driver.get("http://127.0.0.1:5000/")
 
     fill_form(driver, "Harimya", "", "student@gmail.com", "3rd Year")
-    driver.find_element(By.NAME, "sb").click()
+    driver.find_element(By.ID, "submit-btn").click()
+   
 
     assert driver.current_url.endswith("/")
     assert driver.find_element(By.NAME, "student_id").get_attribute("required") is not None
